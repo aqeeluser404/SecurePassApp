@@ -1,0 +1,34 @@
+/* color palette */
+:root {
+    /* whites */
+    --color-white: #ffffff;
+    --color-white-soft: #f8f8f8;
+    --color-white-muted: #f2f2f2;
+  
+    /* blacks */
+    --color-black: #181818;
+    --color-black-soft: #222222;
+    --color-black-muted: #282828;
+  
+    /* color theme */
+    --color-theme-1: #2c3e50;
+    --color-theme-2: #22313f;
+
+    /* elements */
+    --color-divider-light-1: rgba(60, 60, 60, 0.29);
+    --color-divider-light-2: rgba(60, 60, 60, 0.12);
+    --color-divider-dark-1: rgba(84, 84, 84, 0.65);
+    --color-divider-dark-2: rgba(84, 84, 84, 0.48);
+  
+    /* Semantic Color Variables */
+    --color-background: var(--color-white);
+    --color-text: #333333; /* Default text color */
+}
+  
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: var(--color-black);
+      --color-text: var(--color-white);
+    }
+}

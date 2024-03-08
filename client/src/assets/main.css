@@ -1,0 +1,38 @@
+@import 'stylesheets/base.css';
+@import 'stylesheets/color-palette.css';
+@import 'stylesheets/containers.css';
+@import 'stylesheets/font-sizes.css';
+@import 'stylesheets/font-families.css';
+@import 'stylesheets/elements.css';
+@import 'stylesheets/utility.css';
+@import 'stylesheets/flex-layout.css';
+
+#app {
+  /* width: 100%; */
+  max-width: none; 
+  margin: 0; 
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Media queries */
+@media (max-width: 575.98px) {
+  /* Styles for extra small devices */
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Styles for small devices */
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Styles for medium devices */
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Styles for large devices */
+}
+
+@media (min-width: 1200px) {
+  /* Styles for extra large devices */
+}
+

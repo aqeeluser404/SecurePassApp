@@ -1,0 +1,70 @@
+:root {
+    /* nav width and height */
+    --nav-container-width: 100%;
+    --nav-container-height: auto;
+
+    /* Container widths */
+    --normal-container-width-desktop: 1200px;
+    --narrow-container-width-desktop: 400px;
+    --dynamic-container-width-desktop: 100%; 
+    --dynamic-container-height-desktop: 100vh;
+  
+    /* Heights for containers */
+    --normal-container-height: auto;
+    --narrow-container-height: auto;
+    --wide-container-height: auto;
+  
+    /* Mobile breakpoint */
+    --mobile-breakpoint: 768px;
+}
+
+/* Nav container styles */
+.nav-container-horizontal {
+    width: var(--nav-container-width);
+    height: var(--nav-container-height);
+    padding: var(--space-sm) var(--space-lg);
+}
+
+@media screen and (max-width: var(--mobile-breakpoint)) {
+    .nav-container-horizontal {
+        padding: var(--space-sm) var(--space-md);
+    }
+}
+  
+/* normal container */
+.container {
+    max-width: var(--normal-container-width-desktop);
+    margin: 0 auto;
+    height: var(--normal-container-height);
+    padding: var(--space-md); 
+}
+@media screen and (max-width: var(--mobile-breakpoint)) {
+    .container {
+        padding: var(--space-sm);
+    }
+}
+
+/* narrow container */
+.narrow-container {
+    max-width: var(--narrow-container-width-desktop);
+    margin: 0 auto;
+    height: var(--narrow-container-height);
+    padding: var(--space-md); 
+}
+@media screen and (max-width: var(--mobile-breakpoint)) {
+    .narrow-container {
+        padding: var(--space-sm);
+    }
+}
+
+/* dynamic container */
+.dynamic-container {
+    width: var(--dynamic-container-width-desktop);
+    height: var(--dynamic-container-height-desktop);
+    padding: var(--space-md); 
+}
+@media screen and (max-width: var(--mobile-breakpoint)) { 
+    .dynamic-container {
+        padding: var(--space-sm);
+    }
+}

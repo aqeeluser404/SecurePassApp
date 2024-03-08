@@ -1,0 +1,19 @@
+  /* Unordered list styles */
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* List item styles */
+  .list-item {
+    padding: var(--list-padding-vertical) var(--list-padding-horizontal);
+  }
+
+  /* Link styles */
+  .list-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  

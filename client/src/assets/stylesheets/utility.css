@@ -1,0 +1,76 @@
+/* Spacing Variables */
+:root {
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Default List padding sizes */
+    --list-padding-vertical: var(--space-sm);
+    --list-padding-horizontal: var(--space-md);
+}
+  
+/* Paddings */
+.p-xs {
+    padding: var(--space-xs);
+}
+  
+.p-sm {
+    padding: var(--space-sm);
+}
+  
+.p-md {
+    padding: var(--space-md);
+}
+  
+.p-lg {
+    padding: var(--space-lg);
+}
+  
+.p-xl {
+    padding: var(--space-xl);
+}
+  
+/* Margins */
+.m-xs {
+    margin: var(--space-xs);
+}
+  
+.m-sm {
+    margin: var(--space-sm);
+}
+  
+.m-md {
+    margin: var(--space-md);
+}
+  
+.m-lg {
+    margin: var(--space-lg);
+}
+  
+.m-xl {
+    margin: var(--space-xl);
+}
+  
+/* Gaps */
+.gap-xs {
+    gap: var(--space-xs);
+}
+  
+.gap-sm {
+    gap: var(--space-sm);
+}
+  
+.gap-md {
+    gap: var(--space-md);
+}
+  
+.gap-lg {
+    gap: var(--space-lg);
+}
+  
+.gap-xl {
+    gap: var(--space-xl);
+}
+  
