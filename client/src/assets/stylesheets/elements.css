@@ -16,4 +16,17 @@
     color: inherit;
   }
 
+  /* NEW BOILERPOINT */
+  .button {
+    background-color: var(--color-theme-1);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  .button:hover {
+    background-color: var(--color-theme-2);
+  }
   
