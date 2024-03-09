@@ -9,8 +9,8 @@
 /* default body text color */
 body {
   min-height: 100vh;
-  /* overflow-x: hidden; */
-  line-height: 1.6;
+  overflow-x: hidden;
+  line-height: var(--normal-line-height);
   color: var(--color-text);
   background: var(--color-background);
   font-family: var(--font-family-poppins), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

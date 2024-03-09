@@ -1,92 +1,74 @@
 <template>
-    <div class="form-container">
-        <form @submit.prevent="submitForm">
-            <h2 class="form-heading">Contact us</h2>
+    <div class="form-container flex-row border-radius-sm">
+        <div class="text-container">
+            <h1>Lorem ipsum dolor sit.</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, saepe?</p>
+
+        </div>
+        <form class="p-xl" @submit.prevent="saveData">
+            <!-- <h2 class="form-heading font-size-responsive-xl">Register</h2> -->
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" v-model="formData.name">
+                <label>First Name:</label>
+                <input type="text" class="form-control" v-model="user.firstname">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" v-model="formData.email">
+                <label>Last Name:</label>
+                <input type="text" class="form-control" v-model="user.lastname">
             </div>
-            <!-- Add more form fields here -->
-            <button type="submit" class="submit-button">Submit</button>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" v-model="user.email">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" v-model="user.password">
+            </div>
+            <button type="submit" class="submit-button">Signup</button>
+            <p class="text-decoration-underline font-size-responsive-xs">Already have an account?</p>
         </form>
     </div>
 </template>
   
-<script setup lang="ts">
-  import { ref } from 'vue';
-  
-  interface FormData {
-    name: string;
-    email: string;
-    // Add more form fields here
-  }
-  
-  const formData = ref<FormData>({
-    name: '',
-    email: '',
-    // Initialize more form fields
-  });
-  
-  const submitForm = () => {
-    // Handle form submission logic here
-    console.log('Form submitted with data:', formData.value);
-    // Optionally, you can reset the form fields after submission
-    resetForm();
-  };
-  
-  const resetForm = () => {
-    // Reset form fields
-    formData.value.name = '';
-    formData.value.email = '';
-    // Reset more form fields
-  };
+<script setup>
+    import UserService from '../service/service.js';
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+    const result = ref({});
+    const user = ref({
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+    });
+
+    const register = UserService.createUser;
+
+    const saveData = async () => {
+        try {
+            const response = await register(user.value);
+            result.value = response;
+
+            if (result.value.status) {
+                setTimeout(() => {
+                    alert("Saved")
+                    router.push('/login');
+                }, 1000); 
+            }
+        } 
+        catch (error) {
+            console.error('Error saving user data:', error);
+        }
+    };
 </script>
 
 <style scoped>
-    .form-heading {
-        margin-bottom: var(--space-md);
-    }
-    /* Footer container styles */
-    .footer-container {
-        max-width: var(--normal-container-width-desktop);
-        max-width: 400px; 
-        margin: 0 auto;
-        padding: var(--space-md); 
-    }
-    @media screen and (max-width: var(--mobile-breakpoint)) {
-        .footer-container {
-            padding: var(--space-sm); 
-        }
-    }
-    .form-group {
-        margin-bottom: var(--space-md);
-    }
-    label {
-        display: block;
-        font-weight: bold;
-    }
-    .input-field {
-        width: 100%;
-        padding: var(--space-sm);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    .submit-button {
-        background-color: var(--color-theme-1);
-        color: white;
-        padding: var(--space-sm) var(--space-md);
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.5s ease-in-out;
-    }
-    .submit-button:hover {
-        background-color: var(--color-theme-2);
-    }
+.text-container {
+    width: var(--dynamic-container-width-desktop);
+    max-width: 500px;
+    height: 100%;
+    background-color: var(--color-theme-1);
+}
 </style>
   

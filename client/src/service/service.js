@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:5000/api';
 
-class ApiService {
+class UserService {
   static async createResource(resourceItem) {
     const resourcePath = '/resource';
     try {
@@ -44,4 +44,4 @@ class ApiService {
   }
 }
 
-export default ApiService;
+export default UserService;

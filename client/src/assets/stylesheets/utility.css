@@ -10,6 +10,10 @@
     --list-padding-vertical: var(--space-sm);
     --list-padding-horizontal: var(--space-md);
 }
+
+.border-radius-sm {
+    border-radius: var(--space-sm);
+}
   
 /* Paddings */
 .p-xs {

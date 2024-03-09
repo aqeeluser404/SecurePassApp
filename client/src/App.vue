@@ -13,7 +13,7 @@ import Nav from '@/components/Nav.vue'
 
 <style>
   .img-container {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 80%;
     z-index: -1;

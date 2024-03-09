@@ -36,6 +36,17 @@
 .text-none {
   text-transform: none;
 }
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+/* line heights */
+.sm-line-height {
+  line-height: 1;
+}
+.normal-line-height {
+  line-height: normal;
+}
 
 /* Utility classes for font sizes */
 .font-size-xxs { font-size: var(--font-size-xxs); }
