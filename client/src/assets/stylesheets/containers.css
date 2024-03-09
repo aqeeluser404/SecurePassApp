@@ -74,8 +74,8 @@
     width: var(--dynamic-container-width-desktop);
     height: var(--dynamic-container-height-desktop);
     padding: var(--space-md); 
-    /* add to adjust sizes */
     /* 
+    ADD TO CENTER AND ADJUST SIZE
     max-width: 1200px;
     margin: 0 auto; 
     */
