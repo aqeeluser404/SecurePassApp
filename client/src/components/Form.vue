@@ -66,7 +66,7 @@
 <style scoped>
 .text-container {
     width: var(--dynamic-container-width-desktop);
-    max-width: 500px;
+    max-width: 300px;
     height: 100%;
     background-color: var(--color-theme-1);
 }
