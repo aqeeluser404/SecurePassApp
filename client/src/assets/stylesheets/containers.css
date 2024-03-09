@@ -74,10 +74,11 @@
     width: var(--dynamic-container-width-desktop);
     height: var(--dynamic-container-height-desktop);
     padding: var(--space-md); 
-
     /* add to adjust sizes */
-    /* max-width: 1200px;
-    margin: 0 auto; */
+    /* 
+    max-width: 1200px;
+    margin: 0 auto; 
+    */
 }
 @media screen and (max-width: var(--mobile-breakpoint)) { 
     .dynamic-container {
@@ -92,6 +93,7 @@
 }
 @media screen and (max-width: var(--mobile-breakpoint)) {
     .text-container {
+        width: var(--dynamic-container-width-desktop);
         padding: var(--space-sm);
     }
 }

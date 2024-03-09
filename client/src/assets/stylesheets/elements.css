@@ -32,9 +32,9 @@
 
   /* NEW BOILERPOINT */
   .form-container {
-    /* width: var(--dynamic-container-width-desktop); */
-    /* max-width: fit-content; */
-    /* height: var(--dynamic-container-height-desktop); */
+    width: var(--dynamic-container-width-desktop);
+    max-width: fit-content;
+    height: var(--normal-container-height);
     color: var(--color-black-muted);
     background-color: var(--color-white-soft);
   }

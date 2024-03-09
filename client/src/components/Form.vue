@@ -3,7 +3,6 @@
         <div class="text-container">
             <h1>Lorem ipsum dolor sit.</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, saepe?</p>
-
         </div>
         <form class="p-xl" @submit.prevent="saveData">
             <!-- <h2 class="form-heading font-size-responsive-xl">Register</h2> -->
@@ -64,11 +63,11 @@
 </script>
 
 <style scoped>
-.text-container {
-    width: var(--dynamic-container-width-desktop);
-    max-width: 300px;
-    height: 100%;
-    background-color: var(--color-theme-1);
-}
+    .text-container {
+        width: var(--dynamic-container-width-desktop);
+        max-width: 400px;
+        height: 100%;
+        background-color: var(--color-theme-1);
+    }
 </style>
   
