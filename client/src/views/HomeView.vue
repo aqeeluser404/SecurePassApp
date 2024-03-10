@@ -20,11 +20,14 @@
     <div class="dynamic-container flex-column">
       <Form />
     </div>
+
+    <Footer />
   </main>
 </template>
 
 <script setup>
   import Form from '@/components/Form.vue'
+  import Footer from '@/components/Footer.vue';
 </script>
 
 <style scoped>
