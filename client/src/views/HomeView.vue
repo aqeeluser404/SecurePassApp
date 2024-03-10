@@ -43,7 +43,7 @@
   }
   @media screen and (max-width: 768px) {
     .absolute-img {
-      opacity: 0.5;
+      opacity: 0.2;
     }
   }
   .dynamic-container {

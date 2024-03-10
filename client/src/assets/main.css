@@ -6,6 +6,7 @@
 @import 'stylesheets/elements.css';
 @import 'stylesheets/utility.css';
 @import 'stylesheets/flex-layout.css';
+@import 'stylesheets/icons.css';
 
 #app {
   width: 100%;
