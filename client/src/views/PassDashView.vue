@@ -122,11 +122,20 @@
     <div class="dynamic-container flex-column">
 
       <div class="dash-header flex-row-start">
-        <h1 class="font-size-responsive-lg">Hi, 
+        <div>
+          <h1 class="font-size-responsive-lg">Hi, 
           <span class="username">
             {{ capitalizeFirstLetter(userName) }}
           </span>
         </h1>
+        <h1 class="font-size-responsive-xs text-uppercase">
+          Secured: 
+          <span class="username">
+            {{ passItems.length }}
+          </span>
+        </h1>
+        </div>
+
         <input v-model.trim="search" type="text" placeholder="Search...">
       </div>
 
@@ -137,6 +146,15 @@
           :userId="userId" 
           @dblclick="deletePass(pass._id, userId)"
         />
+
+        <div class="text-container">
+          <p v-if="passItems.length === 0" class="no-items-message">
+            Click '+' to add. <br>
+            Ensure you enter a new value before confirming update. <br>
+            double click the card to delete. <br>
+          </p>
+        </div>
+
       </div>
       </div>
 
@@ -192,7 +210,7 @@
   .username {
     color: var(--color-theme-1);
   }
-  .dash-header h1 {
+  .dash-header div {
     width: 100%;
   }
   .dash-header input {
@@ -203,9 +221,6 @@
     padding: 10px;
     border-radius: 15px;
   }
-  .flex-row-start {
-    justify-content: space-between;
-  }
   .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -215,6 +230,9 @@
     margin-top: 20px;
     justify-content: center;
     margin-bottom: 20px;
+  }
+  .text-container {
+    text-align: center;
   }
   /* overlay */
   .overlay {

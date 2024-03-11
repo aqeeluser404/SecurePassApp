@@ -75,5 +75,11 @@
         max-width: 400px;
         height: 100%;
         background-color: var(--color-theme-1);
+        border-radius: var(--space-lg) 0 0 var(--space-lg);
+    }
+    @media screen and (max-width: 768px) {
+        .text-container {
+            border-radius: var(--space-lg) var(--space-lg) 0 0;
+        }
     }
 </style>

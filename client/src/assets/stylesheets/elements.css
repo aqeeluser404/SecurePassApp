@@ -36,7 +36,7 @@
     border: none;
     border-radius: 100%;
     background-color: var(--color-theme-1);
-    color: var(--vt-c-white);
+    color: var(--color-white-soft);
     transition: 0.4s all;
   }
   .rounded-button:hover {

@@ -3,6 +3,8 @@
     
     <img src="https://cdn-icons-png.freepik.com/512/3043/3043833.png" class="border-radius-lg lock-icon" alt="lock-icon">
     
+    <div class="line-divider" />
+    
     <div class="card-text">
       <h1 class="font-size-responsive-md text-uppercase default-color-text mb-md poppins-semibold">
         {{ pass.accountName }}
@@ -177,7 +179,7 @@
   }
   
   .card-row-container img { width: 20px;height: auto; }
-  .card-row-container input { padding: 10px; border: none; background-color: rgba(128, 128, 128, 0.15); width: 100%; }
+  .card-row-container input { padding: 8px; border: 2px solid var(--color-theme-1); background-color: rgba(128, 128, 128, 0.15); width: 100%; }
   
   .notification {
     position: absolute;
