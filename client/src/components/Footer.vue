@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-container">
         <div class="footer-copyright font-size-responsive-xs">
-            <p>Copyright &copy;2024, Designed by <span class="designer">Aqeel</span></p>
+            <p>Copyright &copy;2024, Developed by <span class="designer">Aqeel</span></p>
         </div>
     </footer>
 </template>

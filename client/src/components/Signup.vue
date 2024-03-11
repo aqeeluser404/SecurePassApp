@@ -23,13 +23,13 @@
                 <input type="password" class="form-control" v-model="user.password">
             </div>
             <button type="submit" class="submit-button">Signup</button>
-            <p class="text-decoration-underline font-size-responsive-xs">Already have an account?</p>
+            <p class="text-decoration-underline font-size-responsive-xs" @click="GoToLogin">Already have an account?</p>
         </form>
     </div>
 </template>
   
 <script setup>
-    import UserService from '../service/service.js';
+    import UserService from '../service/UserService.js';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
@@ -60,6 +60,10 @@
             console.error('Error saving user data:', error);
         }
     };
+
+    const GoToLogin = () => {
+        router.push('/login');
+    }
 </script>
 
 <style scoped>
@@ -70,4 +74,3 @@
         background-color: var(--color-theme-1);
     }
 </style>
-  

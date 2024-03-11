@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import Signup from '../views/Signup.vue'
+import LoginView from '../views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,16 +11,24 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/about',
+      path: '/login',
       name: 'about',
-      component: AboutView
+      component: LoginView
     },
-    {
-      path: '/signup',
-      name: 'signup',
-      component: Signup
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // wait for the out transition to complete (if necessary)
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
     }
-  ]
+  },
 })
 
 export default router

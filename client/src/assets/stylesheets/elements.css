@@ -39,7 +39,7 @@
     background-color: var(--color-white-soft);
   }
   .form-heading {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   .form-group {
     margin-bottom: var(--space-md);

@@ -8,7 +8,7 @@
           And then to find yourself losing track of them? <br> 
           Discover the simplicity and security of our password vault solution.
         </p>
-        <button class="button">Get Started</button>
+        <RouterLink class="button" to="/#signup">Get Started</RouterLink>
       </div>
       <!-- Absolute Hero Image -->
       <img 
@@ -17,8 +17,8 @@
         alt="lock-image"
       >
     </div>
-    <div class="dynamic-container flex-column">
-      <Form />
+    <div class="dynamic-container flex-column" id="signup" >
+      <Signup />
     </div>
     <!-- footer component -->
     <Footer />
@@ -26,8 +26,25 @@
 </template>
 
 <script setup>
-  import Form from '@/components/Form.vue'
+  import Signup from '@/components/Signup.vue'
   import Footer from '@/components/Footer.vue';
+  import { onMounted, nextTick } from 'vue';
+  import { useRoute, RouterLink } from 'vue-router';
+
+  const route = useRoute();
+
+  onMounted(() => {
+    nextTick(() => {
+      const scrollToId = route.query.scrollTo;
+      
+      if (scrollToId) {
+        const element = document.getElementById(scrollToId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
 </script>
 
 <style scoped>
