@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+import PassDashView from '../views/PassDashView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/login',
       name: 'about',
       component: LoginView
+    },
+    {
+      path: '/passdashview/:id',
+      name: 'PassDashView',
+      component: PassDashView
     },
   ],
   scrollBehavior(to, from, savedPosition) {

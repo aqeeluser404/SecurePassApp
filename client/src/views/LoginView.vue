@@ -56,8 +56,7 @@
                   const userId = response.data.user._id;
                   setTimeout(() => {
                     alert("Login Success");
-                    // this.$router.push(`/passdashview/${userId}`);
-                    this.$router.push('/');
+                    this.$router.push(`/passdashview/${userId}`);
                   }, 1000); 
                   
                 })

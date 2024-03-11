@@ -29,6 +29,23 @@
   .button:hover {
     background-color: var(--color-theme-2);
   }
+  .rounded-button {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    font-size: 29px;
+    width: 75px;
+    height: 75px;
+    border: none;
+    border-radius: 100%;
+    z-index: 10003;
+    background-color: var(--color-theme-1);
+    color: var(--vt-c-white);
+    transition: 0.4s all;
+  }
+  .rounded-button:hover {
+    transform: scale(1.1);
+  }
 
   /* NEW BOILERPOINT */
   .form-container {
@@ -37,6 +54,7 @@
     height: var(--normal-container-height);
     color: var(--color-black-muted);
     background-color: var(--color-white-soft);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   }
   .form-heading {
     margin-bottom: var(--space-md);

@@ -14,6 +14,7 @@ import { RouterLink } from 'vue-router'
 <style scoped>
   nav {
     position: absolute;
+    z-index: 2000;
   }
   .nav-container-horizontal {
     display: flex;
