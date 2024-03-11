@@ -1,24 +1,34 @@
 <template>
   <div class="card box-shadow-sm border-radius-lg">
-    <img src="https://cdn-icons-png.freepik.com/512/3043/3043833.png" class="default-color-text" alt="#">
+    
+    <img src="https://cdn-icons-png.freepik.com/512/3043/3043833.png" class="border-radius-lg lock-icon" alt="lock-icon">
+    
     <div class="card-text">
-
-      <h1 class="font-size-responsive-md text-uppercase default-color-text">
+      <h1 class="font-size-responsive-md text-uppercase default-color-text mb-md poppins-semibold">
         {{ pass.accountName }}
       </h1>
-      <!-- <hr>  -->
 
       <div class="card-row-container">
         <img :src="showUsername ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="toggleUsernameVisibility">
         <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updateUsername">
-        <input type="text" v-model="usernameInput" :placeholder="usernamePlaceholder">
+        <input 
+          type="text" 
+          class="border-radius-sm" 
+          v-model="usernameInput" 
+          :placeholder="usernamePlaceholder"
+        >
         <div v-show="showNotification" class="notification">Copied!</div>
       </div>
 
       <div class="card-row-container">
         <img :src="showPassword ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="togglePasswordVisibility">
         <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updatePassword">
-        <input type="password" v-model="passwordInput" :placeholder="passwordPlaceholder" >
+        <input 
+          type="password" 
+          class="border-radius-sm"  
+          v-model="passwordInput"
+          :placeholder="passwordPlaceholder" 
+        >
       </div>
     </div>
   </div>
@@ -151,17 +161,12 @@
   }
   .card img {
     width: 100%;
-    color: var(--color-text);
     margin: 0;
     padding: 15px 0;
   }
   .card .card-text {
     padding: 0 15px;
     line-height: 1;
-  }
-  .card .card-text h1 {
-    margin-bottom: var(--space-md);
-    font-weight: bold;
   }
   .card-row-container {
     display: flex;
@@ -170,18 +175,10 @@
     gap: 0.8em;
     max-width: 100%;
   }
-  .card-row-container img {
-    width: 20px;
-    height: auto;
-  }
-  .card-row-container input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgba(128, 128, 128, 0.15);
-
-    width: 100%;
-  }
+  
+  .card-row-container img { width: 20px;height: auto; }
+  .card-row-container input { padding: 10px; border: none; background-color: rgba(128, 128, 128, 0.15); width: 100%; }
+  
   .notification {
     position: absolute;
     top: 69%;

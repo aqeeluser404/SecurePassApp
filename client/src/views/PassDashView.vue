@@ -122,7 +122,11 @@
     <div class="dynamic-container flex-column">
 
       <div class="dash-header flex-row-start">
-        <h1 class="font-size-responsive-lg">Hi, {{ capitalizeFirstLetter(userName) }}</h1>
+        <h1 class="font-size-responsive-lg">Hi, 
+          <span class="username">
+            {{ capitalizeFirstLetter(userName) }}
+          </span>
+        </h1>
         <input v-model.trim="search" type="text" placeholder="Search...">
       </div>
 
@@ -184,6 +188,9 @@
     height: auto;
     margin-top: 40px;
     padding: 6px 3em;
+  }
+  .username {
+    color: var(--color-theme-1);
   }
   .dash-header h1 {
     width: 100%;

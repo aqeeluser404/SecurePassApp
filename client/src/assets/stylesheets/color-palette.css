@@ -3,7 +3,7 @@
     /* whites */
     --color-white: #ffffff;
     --color-white-soft: #f8f8f8;
-    --color-white-muted: #f2f2f2;
+    --color-white-muted: #dbdbdb;
   
     /* blacks */
     --color-black: #181818;
@@ -20,7 +20,7 @@
     --color-divider-dark-2: rgba(84, 84, 84, 0.48);
   
     /* Semantic Color Variables */
-    --color-background: var(--color-white);
+    --color-background: var(--color-white-muted);
     --color-container-background: var(--color-white-muted);
     --color-text: #333333;
 }
@@ -32,6 +32,9 @@
 .default-color-text {
   color: var(--color-text);
 }
+.default-color-white {
+  color: var(--color-white-soft);
+}
 
 /* classes for shadows */
 .box-shadow-sm {
@@ -39,10 +42,10 @@
 }
   
 /* Dark Mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
       --color-background: var(--color-black);
       --color-text: var(--color-white);
       --color-container-background: var(--color-black-muted);
     }
-} */
+}

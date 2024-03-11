@@ -1,6 +1,6 @@
 <template>
     <div class="dynamic-container flex-column">
-      <div class="form-container border-radius-sm">
+      <div class="form-container border-radius-lg">
         <form class="p-xl" @submit.prevent="loginData">
             <h2 class="form-heading font-size-responsive-xl">Sign in</h2>
             <div class="form-group">

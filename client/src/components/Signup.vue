@@ -1,8 +1,9 @@
 <template>
-    <div class="form-container flex-row border-radius-sm">
+    <div class="form-container flex-row border-radius-lg">
         <div class="text-container">
-            <h1>Lorem ipsum dolor sit.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, saepe?</p>
+            <h1 class="default-color-white text-decoration-underline">Sign up free!</h1>
+            <br>
+            <p class="default-color-white font-size-md">Safeguard your digital world with Secure Pass. Enjoy effortless management and lightning-fast access to your passwords, ensuring your online presence stays safe and secure. Join us now for worry-free browsing!</p>
         </div>
         <form class="p-xl" @submit.prevent="saveData">
             <!-- <h2 class="form-heading font-size-responsive-xl">Register</h2> -->
@@ -68,6 +69,8 @@
 
 <style scoped>
     .text-container {
+        text-align: center;
+        padding: 1em 2em;
         width: var(--dynamic-container-width-desktop);
         max-width: 400px;
         height: 100%;
