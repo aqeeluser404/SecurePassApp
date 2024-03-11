@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
   nav {
-    position: absolute;
+    position: fixed;
     z-index: 2000;
   }
   .nav-container-horizontal {

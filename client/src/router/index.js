@@ -23,7 +23,6 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // wait for the out transition to complete (if necessary)
     if (to.hash) {
       return {
         el: to.hash,

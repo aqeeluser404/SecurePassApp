@@ -1,28 +1,30 @@
 <template>
-    <div class="card">
-      <img src="https://assets.dryicons.com/uploads/icon/svg/6208/c328d8f3-85cc-4d63-add4-9d547c1feb65.svg" alt="#">
-      <div class="card-text">
-  
-        <h3>{{ pass.accountName }}</h3>
-        <hr> 
-  
-        <div class="card-row-container">
-          <img :src="showUsername ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="toggleUsernameVisibility">
-          <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updateUsername">
-          <input type="text" v-model="usernameInput" :placeholder="usernamePlaceholder">
-          <div v-show="showNotification" class="notification">Copied!</div>
-        </div>
-  
-        <div class="card-row-container">
-          <img :src="showPassword ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="togglePasswordVisibility">
-          <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updatePassword">
-          <input type="password" v-model="passwordInput" :placeholder="passwordPlaceholder" >
-        </div>
+  <div class="card box-shadow-sm border-radius-lg">
+    <img src="https://cdn-icons-png.freepik.com/512/3043/3043833.png" class="default-color-text" alt="#">
+    <div class="card-text">
+
+      <h1 class="font-size-responsive-md text-uppercase default-color-text">
+        {{ pass.accountName }}
+      </h1>
+      <!-- <hr>  -->
+
+      <div class="card-row-container">
+        <img :src="showUsername ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="toggleUsernameVisibility">
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updateUsername">
+        <input type="text" v-model="usernameInput" :placeholder="usernamePlaceholder">
+        <div v-show="showNotification" class="notification">Copied!</div>
+      </div>
+
+      <div class="card-row-container">
+        <img :src="showPassword ? 'https://cdn.iconscout.com/icon/free/png-512/free-eye-514-457691.png?f=webp&w=256' : 'https://cdn.iconscout.com/icon/free/png-512/free-eye-484-434038.png?f=webp&w=256'" alt="#" @click="togglePasswordVisibility">
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" alt="#" @click="updatePassword">
+        <input type="password" v-model="passwordInput" :placeholder="passwordPlaceholder" >
       </div>
     </div>
-  </template>
+  </div>
+</template>
   
-  <script setup>
+<script setup>
   import { defineProps, ref } from 'vue';
   import PassService from '../service/PassService';
   
@@ -38,8 +40,8 @@
   const usernameInput = ref('');
   const passwordInput = ref('');
   
-  const usernamePlaceholder = ref('Show Username');
-  const passwordPlaceholder = ref('Show Password');
+  const usernamePlaceholder = ref('Username');
+  const passwordPlaceholder = ref('Password');
   
   const updateUsername = async () => {
     const passDetails = {
@@ -103,7 +105,7 @@
       await copyToClipboard(props.pass.userName);
     } 
     else {
-      usernamePlaceholder.value = 'Show Username';
+      usernamePlaceholder.value = 'Username';
     }
   };
   
@@ -114,7 +116,7 @@
       await copyToClipboard(props.pass.password);
     } 
     else {
-      passwordPlaceholder.value = 'Show Password';
+      passwordPlaceholder.value = 'Password';
     }
   };
   
@@ -132,26 +134,24 @@
       console.error('Error copying text to clipboard:', error);
     }
   };
-  </script>
-  
-  
-  <style scoped>
+</script>
+
+<style scoped>
   .card {
-    width: 230px;
+    width: 210px;
     overflow: hidden;
-    border-radius: 2%;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: 0.4s all;
     transform: scale(1);
-    padding: 1em 0px;
+    padding: 0.5em;
+    background-color: var(--color-container-background);
   }
   .card:hover {
     transform: scale(0.95);
   }
   .card img {
     width: 100%;
-    height: 190px;
+    color: var(--color-text);
     margin: 0;
     padding: 15px 0;
   }
@@ -159,15 +159,15 @@
     padding: 0 15px;
     line-height: 1;
   }
-  .card .card-text h3 {
+  .card .card-text h1 {
+    margin-bottom: var(--space-md);
     font-weight: bold;
-    font-size: 24px;
   }
   .card-row-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 1em;
+    gap: 0.8em;
     max-width: 100%;
   }
   .card-row-container img {
@@ -175,11 +175,12 @@
     height: auto;
   }
   .card-row-container input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
     border: none;
     background-color: rgba(128, 128, 128, 0.15);
-    width: 130px;
+
+    width: 100%;
   }
   .notification {
     position: absolute;
@@ -192,4 +193,4 @@
     border-radius: 5px;
     z-index: 999;
   }
-  </style>
+</style>

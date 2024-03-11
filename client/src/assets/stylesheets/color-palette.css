@@ -8,11 +8,10 @@
     /* blacks */
     --color-black: #181818;
     --color-black-soft: #222222;
-    --color-black-muted: #282828;
+    --color-black-muted: #383838;
   
     /* color theme */
-    --color-theme-1: #2c3e50;
-    --color-theme-2: #22313f;
+    --color-theme-1: #bc510a;
 
     /* elements */
     --color-divider-light-1: rgba(60, 60, 60, 0.29);
@@ -22,7 +21,21 @@
   
     /* Semantic Color Variables */
     --color-background: var(--color-white);
-    --color-text: #333333; /* Default text color */
+    --color-container-background: var(--color-white-muted);
+    --color-text: #333333;
+}
+
+/* classes for color */
+.color-theme-1 {
+  color: var(--color-theme-1);
+}
+.default-color-text {
+  color: var(--color-text);
+}
+
+/* classes for shadows */
+.box-shadow-sm {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
   
 /* Dark Mode */
@@ -30,5 +43,6 @@
     :root {
       --color-background: var(--color-black);
       --color-text: var(--color-white);
+      --color-container-background: var(--color-black-muted);
     }
 } */

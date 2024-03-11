@@ -30,15 +30,11 @@
     background-color: var(--color-theme-2);
   }
   .rounded-button {
-    position: fixed;
-    bottom: 5%;
-    left: 5%;
     font-size: 29px;
     width: 75px;
     height: 75px;
     border: none;
     border-radius: 100%;
-    z-index: 10003;
     background-color: var(--color-theme-1);
     color: var(--vt-c-white);
     transition: 0.4s all;

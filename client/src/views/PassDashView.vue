@@ -2,6 +2,7 @@
   import Card from '@/components/Card.vue';
   import { ref, onMounted, watch } from 'vue';
   import { useRoute } from 'vue-router';
+  import Footer from '../components/Footer.vue'
 
   import UserService from '../service/UserService';
   import PassService from '../service/PassService';
@@ -117,83 +118,98 @@
 </script>
 
 <template>
-  <div class="dynamic-container flex-column-start">
+  <main>
+    <div class="dynamic-container flex-column">
 
-    <div class="dash-header flex-row">
-      <h2>Hi, {{ capitalizeFirstLetter(userName) }}</h2>
-      <input v-model.trim="search" type="text" placeholder="Search...">
-    </div>
-    
-    <div class="card-container">
-      <Card v-for="pass in passItems"
-        :key="pass.id"
-        :pass="pass" 
-        :userId="userId" 
-        @dblclick="deletePass(pass._id, userId)"
-      />
-    </div>
-  </div>
+      <div class="dash-header flex-row-start">
+        <h1 class="font-size-responsive-lg">Hi, {{ capitalizeFirstLetter(userName) }}</h1>
+        <input v-model.trim="search" type="text" placeholder="Search...">
+      </div>
 
-  <!-- elements -->
-  <!-- modal -->
-  <div class="overlay" :style="{ visibility: showModal ? 'visible' : 'hidden', opacity: showModal ? '1' : '0' }" v-show="showModal">            
-    <div class="modal form-container" v-show="showModal">
-      <h3>Add Account</h3>
-      <br>
-      <div class="form-group">
-        <label>Account Name:</label>
-        <input type="text" class="form-control" v-model="createdPass.accountName">
+      <div class="card-container">
+        <Card v-for="pass in passItems"
+          :key="pass.id"
+          :pass="pass" 
+          :userId="userId" 
+          @dblclick="deletePass(pass._id, userId)"
+        />
       </div>
-      <div class="form-group">
-        <label>Username:</label>
-        <input type="text" class="form-control" v-model="createdPass.userName" >
       </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="createdPass.password" >
-      </div>
-      <div class="form-group">
-        <button class="button" @click="addPass">Add Pass Entry</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- button to show modal -->
-  <button class="rounded-button" @click="showModal = !showModal">
-    <b>{{ showModal ? '-' : '+' }}</b>
-  </button>
+      <!-- elements -->
+      <!-- modal -->
+      <div class="overlay" :style="{ visibility: showModal ? 'visible' : 'hidden', opacity: showModal ? '1' : '0' }" v-show="showModal">            
+        <div class="modal form-container border-radius-lg" v-show="showModal">
+          <h3>Add Account</h3>
+          <br>
+          <div class="form-group">
+            <label>Account Name:</label>
+            <input type="text" class="form-control" v-model="createdPass.accountName">
+          </div>
+          <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" v-model="createdPass.userName" >
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" v-model="createdPass.password" >
+          </div>
+          <div class="form-group">
+            <button class="button" @click="addPass">Add Pass Entry</button>
+          </div>
+        </div>
+    </div>
+
+    <!-- button to show modal -->
+    <button class="rounded-button" @click="showModal = !showModal">
+      <b>{{ showModal ? '-' : '+' }}</b>
+    </button>
+  </main>
+  <Footer />
 </template>
 
 
 <style scoped>
   .dynamic-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
+    min-height: 100vh;
+    height: 100%;
   }
   .dash-header {
     border-bottom: 1px solid var(--el-divider-dark-2);
+    max-width: 1200px;
     width: 100%;
     height: auto;
+    margin-top: 40px;
     padding: 6px 3em;
   }
+  .dash-header h1 {
+    width: 100%;
+  }
   .dash-header input {
+    max-width: 180px;
+    width: 100%;
     border: none;
     background-color: rgba(128, 128, 128, 0.15);
     padding: 10px;
-    margin-left: 100px;
     border-radius: 15px;
+  }
+  .flex-row-start {
+    justify-content: space-between;
   }
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     height: fit-content;
+    width: 100%;
     gap: 1em;
     margin-top: 20px;
     justify-content: center;
     margin-bottom: 20px;
   }
+  /* overlay */
   .overlay {
     transition: opacity 0.5s linear;
     position: fixed;
@@ -210,10 +226,13 @@
     opacity: 0;
     transition: opacity 0.5s, visibility 0.5s;
   }
+  @media screen and (max-width: 768px) {
+    .overlay {
+      background-color: rgb(0, 0, 0);
+    }
+  }
   .modal {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    border-radius: 10px;
     padding: var(--space-xl);
     z-index: 1001;
   }
@@ -221,5 +240,11 @@
     color: white;
     cursor: pointer;
     margin-top: 15px;
+  }
+  .rounded-button {
+    position: fixed;
+    bottom: 1%;
+    left: 2%;
+    z-index: 10003;
   }
 </style>

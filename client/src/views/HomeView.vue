@@ -20,9 +20,9 @@
     <div class="dynamic-container flex-column" id="signup" >
       <Signup />
     </div>
-    <!-- footer component -->
-    <Footer />
   </main>
+  <!-- footer component -->
+  <Footer />
 </template>
 
 <script setup>
