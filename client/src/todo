@@ -1,0 +1,17 @@
+- implement validation
+to where a user has to have a unique username and password.
+
+- implement fixing dash header to the top
+
+- implement a toggle for light and dark mode
+
+- implement logout button
+either we remove the navbar when we in the dash, or make the login button switch to logout
+*not implementing jwt for this project*
+
+- implement user profile
+allowing users to change their user details
+
+- implement email verification 
+
+- implement google recaptcha
