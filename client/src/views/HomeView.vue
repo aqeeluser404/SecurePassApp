@@ -20,7 +20,7 @@
     <div class="dynamic-container flex-column">
       <Form />
     </div>
-
+    <!-- footer component -->
     <Footer />
   </main>
 </template>
