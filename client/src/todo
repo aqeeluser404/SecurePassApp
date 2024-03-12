@@ -1,6 +1,3 @@
-- implement validation
-to where a user has to have a unique username and password.
-
 - implement fixing dash header to the top
 
 - implement a toggle for light and dark mode
@@ -14,4 +11,6 @@ allowing users to change their user details
 
 - implement email verification 
 
+<!-- done -->
+- validation on the register, no duplication and conditions on the password
 - implement google recaptcha

@@ -47,6 +47,8 @@
 
     const saveData = async () => {
         try {
+            const token = await grecaptcha.execute('6LfGy5UpAAAAAFpzQ8Qg-ctMJl5x-ZW9yMLHwseP');
+            console.log('reCAPTCHA token:', token);
             // Check if the email already exists in the database
             const emailExists = await checkDuplicateUser('email', user.value.email);
             if (emailExists) {
@@ -68,7 +70,7 @@
             }
 
             // If email, password, and complexity requirements are met, proceed with user registration
-            const response = await register(user.value);
+            const response = await register(user.value, token);
             result.value = response;
 
             if (result.value.status) {

@@ -1,22 +1,50 @@
 var userService = require('./userService')
+const axios = require('axios')
+const qs = require('qs'); // Query String
 
-var createUserControllerFn = async (req, res) => {
+const verifyRecaptcha = async (token) => {
+    const secretKey = '6LfGy5UpAAAAANhCMmrPd90f3w6yUMxnND_S4U0S';
+    const url = 'https://www.google.com/recaptcha/api/siteverify';
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    };
+
+    const body = qs.stringify({
+        secret: secretKey,
+        response: token,
+    });
+
     try {
-        console.log(req.body);
-        var status = await userService.createUserDBService(req.body);
-        console.log(status);
-        if (status) {
-            res.send({ "status": true, "message": "User created successfully" });
-        }
-        else {
-            res.send({ "status": false, "message": "Error creating user" });
-        }
+        const response = await axios.post(url, body, config);
+        return response.data.success;
+    } catch (error) {
+        console.error('Error verifying reCAPTCHA:', error);
+        return false;
     }
-    catch(err) {
-        console.log(err);
+};
+const createUserControllerFn = async (req, res) => {
+    try {
+        const token = req.body.recaptchaToken;
+        const isRecaptchaValid = await verifyRecaptcha(token);
+        if (!isRecaptchaValid) {
+            return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed' });
+        }
+
+        const status = await userService.createUserDBService(req.body);
+        if (status) {
+            res.json({ status: true, message: 'User created successfully' });
+        } else {
+            res.status(500).json({ status: false, message: 'Error creating user' });
+        }
+    } catch (err) {
+        console.error('Error creating user:', err);
         res.status(500).send('Internal Server Error');
     }
-}
+};
+
 
 var loginUserControllerFn = async (req, res) => {
     var result = null;
@@ -73,7 +101,13 @@ var getAllUsersControllerFn = async function(req, res) {
     try {
         const users = await userService.getAllUsers();
 
-        res.status(200).json(users);
+        if (users.length === 0) {
+            // If no users found, return an empty array
+            res.status(200).json([]);
+        } else {
+            // If users found, return them
+            res.status(200).json(users);
+        }
     } catch (error) {
         console.error('Error fetching users:', error);
         res.status(500).json({ message: 'Internal server error' });
