@@ -14,6 +14,8 @@
     methods: {
       toggleDarkMode() {
         this.darkMode = !this.darkMode;
+        // localStorage.setItem('darkMode', this.darkMode);
+
         if (this.darkMode) {
           // DARK MODE
           document.documentElement.style.setProperty('--color-background', 'var(--color-black)');
@@ -27,6 +29,9 @@
         }
       },
     },
+    // created() {
+    //   this.darkMode = localStorage.getItem('darkMode') === 'true'; 
+    // },
   };
   </script>
   

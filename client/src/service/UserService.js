@@ -3,22 +3,31 @@ import axios from 'axios';
 const API_BASE_URL = 'http://localhost:5000';
 
 class UserService {
-  static async createUser(USER, recaptchaToken) {
+  static async createUser(USER) {
     const CREATE = '/api/user/create';
     try {
-      // Add the reCAPTCHA token to the request body
-      const requestBody = {
-        ...USER,
-        recaptchaToken: recaptchaToken
-      };
-      
-      const response = await axios.post(`${API_BASE_URL}${CREATE}`, requestBody);
+      const response = await axios.post(`${API_BASE_URL}${CREATE}`, USER);
       return response.data;
     } 
     catch (error) {
-      throw error;
+      throw error; 
     }
   }
+  // static async createUser(USER, recaptchaToken) {
+  //   const CREATE = '/api/user/create';
+  //   try {
+  //     // Add the reCAPTCHA token to the request body
+  //     const requestBody = {
+  //       ...USER,
+  //       recaptchaToken: recaptchaToken
+  //     };
+      
+  //     const response = await axios.post(`${API_BASE_URL}${CREATE}`, requestBody);
+  //     return response.data;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // }
   static async getUserByEmail(EMAIL) {
     const READ_BY_EMAIL = '/api/user/email';
     try {

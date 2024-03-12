@@ -47,8 +47,9 @@
 
     const saveData = async () => {
         try {
-            const token = await grecaptcha.execute('6LfGy5UpAAAAAFpzQ8Qg-ctMJl5x-ZW9yMLHwseP');
-            console.log('reCAPTCHA token:', token);
+            // const token = await grecaptcha.execute('6LfGy5UpAAAAAFpzQ8Qg-ctMJl5x-ZW9yMLHwseP');
+            // console.log('reCAPTCHA token:', token);
+
             // Check if the email already exists in the database
             const emailExists = await checkDuplicateUser('email', user.value.email);
             if (emailExists) {
@@ -70,7 +71,8 @@
             }
 
             // If email, password, and complexity requirements are met, proceed with user registration
-            const response = await register(user.value, token);
+            // const response = await register(user.value, token);
+            const response = await register(user.value);
             result.value = response;
 
             if (result.value.status) {
@@ -99,7 +101,6 @@
             symbolRegex.test(password)
         );
     };
-
 
     const GoToLogin = () => {
         router.push('/login');

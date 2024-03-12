@@ -190,7 +190,6 @@
   <Footer />
 </template>
 
-
 <style scoped>
   .dynamic-container {
     max-width: 1000px;

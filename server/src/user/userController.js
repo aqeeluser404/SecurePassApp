@@ -1,37 +1,37 @@
 var userService = require('./userService')
-const axios = require('axios')
-const qs = require('qs'); // Query String
+// const axios = require('axios')
+// const qs = require('qs'); 
 
-const verifyRecaptcha = async (token) => {
-    const secretKey = '6LfGy5UpAAAAANhCMmrPd90f3w6yUMxnND_S4U0S';
-    const url = 'https://www.google.com/recaptcha/api/siteverify';
+// const verifyRecaptcha = async (token) => {
+//     const secretKey = '6LfGy5UpAAAAANhCMmrPd90f3w6yUMxnND_S4U0S';
+//     const url = 'https://www.google.com/recaptcha/api/siteverify';
 
-    const config = {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    };
+//     const config = {
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//     };
 
-    const body = qs.stringify({
-        secret: secretKey,
-        response: token,
-    });
+//     const body = qs.stringify({
+//         secret: secretKey,
+//         response: token,
+//     });
 
-    try {
-        const response = await axios.post(url, body, config);
-        return response.data.success;
-    } catch (error) {
-        console.error('Error verifying reCAPTCHA:', error);
-        return false;
-    }
-};
+//     try {
+//         const response = await axios.post(url, body, config);
+//         return response.data.success;
+//     } catch (error) {
+//         console.error('Error verifying reCAPTCHA:', error);
+//         return false;
+//     }
+// };
 const createUserControllerFn = async (req, res) => {
     try {
-        const token = req.body.recaptchaToken;
-        const isRecaptchaValid = await verifyRecaptcha(token);
-        if (!isRecaptchaValid) {
-            return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed' });
-        }
+        // const token = req.body.recaptchaToken;
+        // const isRecaptchaValid = await verifyRecaptcha(token);
+        // if (!isRecaptchaValid) {
+        //     return res.status(400).json({ success: false, message: 'reCAPTCHA verification failed' });
+        // }
 
         const status = await userService.createUserDBService(req.body);
         if (status) {
@@ -52,6 +52,7 @@ var loginUserControllerFn = async (req, res) => {
     try {
         result = await userService.loginuserDBService(req.body);
         if (result.status) {
+            // res.setHeader('Set-Cookie', 'cookieName=cookieValue; SameSite=None; Secure');
             res.send({ "status": true, "message": result.msg });
         }
         else {
