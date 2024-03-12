@@ -44,9 +44,25 @@
     });
 
     const register = UserService.createUser;
+    const checkDuplicateUser = UserService.checkDuplicateUser; // Assuming you have a method for this
 
     const saveData = async () => {
         try {
+            // Check if the email already exists in the database
+            const emailExists = await checkDuplicateUser('email', user.value.email);
+            if (emailExists) {
+                alert("Email already exists. Please use a different email.");
+                return; // Exit the function early
+            }
+
+            // Check if the password already exists in the database
+            const passwordExists = await checkDuplicateUser('password', user.value.password);
+            if (passwordExists) {
+                alert("Password already exists. Please use a different password.");
+                return; // Exit the function early
+            }
+
+            // If email and password are unique, proceed with user registration
             const response = await register(user.value);
             result.value = response;
 
@@ -66,7 +82,6 @@
         router.push('/login');
     }
 </script>
-
 <style scoped>
     .text-container {
         text-align: center;

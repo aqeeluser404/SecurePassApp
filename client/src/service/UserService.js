@@ -33,6 +33,22 @@ class UserService {
       throw error; 
     }
   }
+  static async checkDuplicateUser(field, value) {
+    try {
+      // Fetch all users
+      const response = await axios.get(`${API_BASE_URL}/api/users`);
+      const users = response.data;
+
+      // Check if any user already has the provided value for the specified field
+      const duplicateUser = users.find(user => user[field] === value);
+      
+      // Return true if a duplicate user is found, false otherwise
+      return !!duplicateUser;
+    } 
+    catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default UserService;

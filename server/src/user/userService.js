@@ -80,3 +80,20 @@ module.exports.getUserById = (userId) => {
     });
 };
 
+
+module.exports.getAllUsers = () => {
+    return new Promise((resolve, reject) => {
+        userModel.find()
+            .then(users => {
+                if (users.length > 0) {
+                    resolve(users);
+                } else {
+                    reject({ status: false, msg: "No users found" });
+                }
+            })
+            .catch(error => {
+                reject({ status: false, msg: "Error retrieving users" });
+            });
+    });
+};
+

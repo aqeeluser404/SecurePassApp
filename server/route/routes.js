@@ -5,6 +5,8 @@ var passController = require('../src/pass/passController');
 
 const router = express.Router();
 
+router.route('/api/users').get(userController.getAllUsersControllerFn);
+
 router.route('/api/user/login').post(userController.loginUserControllerFn);
 router.route('/api/user/create').post(userController.createUserControllerFn);
 router.route('/api/user/email/:email').get(userController.getUserByEmailControllerFn);
