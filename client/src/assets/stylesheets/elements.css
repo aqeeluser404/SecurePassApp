@@ -49,7 +49,7 @@
     max-width: fit-content;
     height: var(--normal-container-height);
     color: var(--color-black-muted);
-    background-color: var(--color-white-soft);
+    /* background-color: var(--color-white-muted); */
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   }
   .form-heading {

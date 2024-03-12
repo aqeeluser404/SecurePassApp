@@ -1,5 +1,5 @@
 <template>
-    <div class="form-container flex-row border-radius-lg">
+    <div class="form-container default-color-white flex-row border-radius-lg">
         <div class="text-container">
             <h1 class="default-color-white text-decoration-underline">Sign up free!</h1>
             <br>
@@ -105,6 +105,7 @@
         router.push('/login');
     }
 </script>
+
 <style scoped>
     .text-container {
         text-align: center;

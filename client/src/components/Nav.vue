@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import DarkMode from './DarkMode.vue';
 </script>
 
 <template>
@@ -7,6 +8,7 @@ import { RouterLink } from 'vue-router'
     <nav class="nav-container-horizontal gap-xl poppins-bold text-uppercase">
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/login">Login</RouterLink>
+      <DarkMode />
     </nav>
   </header>
 </template>

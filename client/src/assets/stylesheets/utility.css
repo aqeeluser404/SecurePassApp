@@ -86,6 +86,23 @@
     margin-bottom: var(--space-xl);
 }
 
+/* Margin left */
+.ml-xs {
+    margin-left: var(--space-xs);
+}
+.ml-sm {
+    margin-left: var(--space-sm);
+}
+.ml-md {
+    margin-left: var(--space-md);
+}
+.ml-lg {
+    margin-left: var(--space-lg);
+}
+.ml-xl {
+    margin-left: var(--space-xl);
+}
+
   
 /* Gaps */
 .gap-xs {
