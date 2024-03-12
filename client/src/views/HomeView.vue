@@ -44,6 +44,7 @@
         }
       }
     });
+    // store.commit('toggleNavbar');
   });
 </script>
 

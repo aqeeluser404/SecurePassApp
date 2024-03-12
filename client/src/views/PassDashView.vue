@@ -3,6 +3,10 @@
   import { ref, onMounted, watch } from 'vue';
   import { useRoute } from 'vue-router';
   import Footer from '../components/Footer.vue'
+  import { useStore } from 'vuex';
+
+  const store = useStore(); 
+
 
   import UserService from '../service/UserService';
   import PassService from '../service/PassService';
@@ -114,6 +118,7 @@
 
   onMounted(() => {
     fetchUserDetails();
+    // store.commit('toggleNavbar');
   })
 </script>
 

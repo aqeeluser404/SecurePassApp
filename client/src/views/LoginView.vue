@@ -37,15 +37,17 @@
     },
     created() {},
     mounted() {},
-    setup() {
-      const store = useStore();
-    },
+    // setup() {
+    //   const store = useStore();
+    //   return { store };
+    // },
     methods: {
       refresh() {
         window.location.reload();
       },
       // LOGIN 
       loginData() {
+        // const store = useStore();
         axios.post('http://localhost:5000/api/user/login', this.user)
         .then(
           ({data}) => {
