@@ -6,7 +6,6 @@
             <p class="default-color-white font-size-md">Safeguard your digital world with Secure Pass. Enjoy effortless management and lightning-fast access to your passwords, ensuring your online presence stays safe and secure. Join us now for worry-free browsing!</p>
         </div>
         <form class="p-xl" @submit.prevent="saveData">
-            <!-- <h2 class="form-heading font-size-responsive-xl">Register</h2> -->
             <div class="form-group">
                 <label>First Name:</label>
                 <input type="text" class="form-control" v-model="user.firstname">
@@ -44,7 +43,7 @@
     });
 
     const register = UserService.createUser;
-    const checkDuplicateUser = UserService.checkDuplicateUser; // Assuming you have a method for this
+    const checkDuplicateUser = UserService.checkDuplicateUser;
 
     const saveData = async () => {
         try {
@@ -52,17 +51,23 @@
             const emailExists = await checkDuplicateUser('email', user.value.email);
             if (emailExists) {
                 alert("Email already exists. Please use a different email.");
-                return; // Exit the function early
+                return;
             }
 
             // Check if the password already exists in the database
             const passwordExists = await checkDuplicateUser('password', user.value.password);
             if (passwordExists) {
                 alert("Password already exists. Please use a different password.");
-                return; // Exit the function early
+                return;
             }
 
-            // If email and password are unique, proceed with user registration
+            // Validate password complexity
+            if (!isPasswordComplex(user.value.password)) {
+                alert("Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 symbol.");
+                return;
+            }
+
+            // If email, password, and complexity requirements are met, proceed with user registration
             const response = await register(user.value);
             result.value = response;
 
@@ -77,6 +82,22 @@
             console.error('Error saving user data:', error);
         }
     };
+
+    const isPasswordComplex = (password) => {
+        // Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 symbol
+        const uppercaseRegex = /[A-Z]/;
+        const lowercaseRegex = /[a-z]/;
+        const numberRegex = /[0-9]/;
+        const symbolRegex = /[$&+,:;=?@#|'<>.^*()%!-]/;
+        
+        return (
+            uppercaseRegex.test(password) &&
+            lowercaseRegex.test(password) &&
+            numberRegex.test(password) &&
+            symbolRegex.test(password)
+        );
+    };
+
 
     const GoToLogin = () => {
         router.push('/login');
