@@ -1,22 +1,16 @@
 <script setup>
-import { RouterLink } from 'vue-router'
-import DarkMode from './DarkMode.vue';
-import { useStore } from 'vuex';
+  import { RouterLink } from 'vue-router'
+  import DarkMode from './DarkMode.vue';
+  import { useStore } from 'vuex';
 
-const store = useStore(); 
-
+  const store = useStore(); 
 </script>
 
 <template>
-   <!-- v-if="store.state.isNavbarVisible" -->
-  <header>
+  <header v-if="store.state.isNavbarVisible">
     <nav class="nav-container-horizontal gap-xl poppins-bold text-uppercase">
-      
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/login">Login</RouterLink>
-
-      <!-- <RouterLink to="/login" v-if="!store.state.isAuthenticated">Login</RouterLink>
-      <RouterLink to="/" v-else @click="store.commit('logout')">Logout</RouterLink> -->
       <DarkMode />
     </nav>
   </header>

@@ -1,15 +1,17 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import { createStore } from 'vuex';
+import store from './store'
+import Nav from './components/Nav.vue';
 
 import App from './App.vue'
 import router from './router'
 
-const store = createStore()
 const app = createApp(App)
 
 app.use(router)
 app.use(store)
 
+
+app.component('Nav', Nav);
 app.mount('#app')

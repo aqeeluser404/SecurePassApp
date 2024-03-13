@@ -118,7 +118,7 @@
 
   onMounted(() => {
     fetchUserDetails();
-    // store.commit('toggleNavbar');
+    store.commit('toggleNavbar');
   })
 </script>
 

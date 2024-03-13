@@ -22,7 +22,6 @@
 <script>
   import axios from 'axios';
   import UserService from '@/service/UserService'
-  import { useStore } from 'vuex';
 
   export default {
     name : 'LoginView',
@@ -35,12 +34,6 @@
         }
       }
     },
-    created() {},
-    mounted() {},
-    // setup() {
-    //   const store = useStore();
-    //   return { store };
-    // },
     methods: {
       refresh() {
         window.location.reload();
@@ -64,7 +57,6 @@
                     alert("Login Success");
                     this.$router.push(`/passdashview/${userId}`);
                   }, 1000); 
-                  // store.commit('login');
                 })
                 .catch(err => {
                   console.error(err);
