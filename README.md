@@ -1,6 +1,6 @@
-# MyPasswordManager
+# SecurePassApp 
 
-MyPasswordManager is a simple and secure password manager built with Vue.js and Vuex.
+This is a simple password manager built with Vue.js and Vuex.
 
 ## Features
 
@@ -35,26 +35,26 @@ MyPasswordManager is a simple and secure password manager built with Vue.js and 
 ### Clone the Repository
 
 Clone the MyPasswordManager repository from GitHub:
-git clone https://github.com/aqeeluser404/SecurePassApp.git
+- git clone https://github.com/aqeeluser404/SecurePassApp.git
 
 ### Server
 
-npm install
-cd server
+- npm install
+- cd server
 
 create .env with the following variables
 
-DB_USERNAME=YOUR_USERNAME
-DB_PASSWORD=YOUR_PASSWORD
-DB_NAME=YOUR_DB_NAME
+- DB_USERNAME=YOUR_USERNAME
+- DB_PASSWORD=YOUR_PASSWORD
+- DB_NAME=YOUR_DB_NAME
 
 node server.js
 
 ### Client
 
-cd ..
-cd client
-npm install
-npm run dev
+- cd ..
+- cd client
+- npm install
+- npm run dev
 
 
