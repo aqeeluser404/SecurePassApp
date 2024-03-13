@@ -153,6 +153,7 @@
     width: 210px;
     overflow: hidden;
     cursor: pointer;
+    height: fit-content;
     transition: 0.4s all;
     transform: scale(1);
     padding: 0.5em;

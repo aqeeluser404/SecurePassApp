@@ -1,8 +1,8 @@
 <script setup>
   import Card from '@/components/Card.vue';
-  import { ref, onMounted, watch } from 'vue';
-  import { useRoute } from 'vue-router';
-  import Footer from '../components/Footer.vue'
+  import { ref, onMounted, onBeforeUnmount  , watch } from 'vue';
+  import { useRoute, RouterLink } from 'vue-router';
+  import DarkMode from '@/components/DarkMode.vue';
   import { useStore } from 'vuex';
 
   const store = useStore(); 
@@ -120,6 +120,9 @@
     fetchUserDetails();
     store.commit('toggleNavbar');
   })
+  onBeforeUnmount(() => {
+    store.commit('toggleNavbar');
+  });
 </script>
 
 <template>
@@ -129,22 +132,26 @@
       <div class="dash-header flex-row-start">
         <div>
           <h1 class="font-size-responsive-lg">Hi, 
-          <span class="username">
-            {{ capitalizeFirstLetter(userName) }}
-          </span>
-        </h1>
-        <h1 class="font-size-responsive-xs text-uppercase">
-          Secured: 
-          <span class="username">
-            {{ passItems.length }}
-          </span>
-        </h1>
+            <span class="username">
+              {{ capitalizeFirstLetter(userName) }}
+            </span>
+          </h1>
+          <h1 class="font-size-responsive-xs text-uppercase">
+            Secured: 
+            <span class="username">
+              {{ passItems.length }}
+            </span>
+          </h1>
         </div>
+        <div class="flex-row-start">
 
-        <input v-model.trim="search" type="text" placeholder="Search...">
+          <input v-model.trim="search" type="text" placeholder="Search...">
+          <DarkMode class="dark-mode" />
+        </div>
       </div>
 
       <div class="card-container">
+
         <Card v-for="pass in passItems"
           :key="pass.id"
           :pass="pass" 
@@ -161,7 +168,8 @@
         </div>
 
       </div>
-      </div>
+
+    </div>
 
       <!-- elements -->
       <!-- modal -->
@@ -191,8 +199,15 @@
     <button class="rounded-button" @click="showModal = !showModal">
       <b>{{ showModal ? '-' : '+' }}</b>
     </button>
+
+    <!-- button to exit -->
+    <button class="rounded-button exit">
+      <RouterLink to="/">  
+        <font-awesome-icon icon="arrow-left" />
+      </RouterLink>
+    </button>
   </main>
-  <Footer />
+
 </template>
 
 <style scoped>
@@ -204,11 +219,11 @@
     height: 100%;
   }
   .dash-header {
-    border-bottom: 1px solid var(--el-divider-dark-2);
     max-width: 1200px;
     width: 100%;
     height: auto;
-    margin-top: 40px;
+
+    /* margin-top: 40px; */
     padding: 6px 3em;
   }
   .username {
@@ -217,7 +232,7 @@
   .dash-header div {
     width: 100%;
   }
-  .dash-header input {
+  .dash-header div input {
     max-width: 180px;
     width: 100%;
     border: none;
@@ -228,7 +243,7 @@
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    height: fit-content;
+    height: 100vh;
     width: 100%;
     gap: 1em;
     margin-top: 20px;
@@ -273,7 +288,11 @@
   .rounded-button {
     position: fixed;
     bottom: 1%;
-    left: 2%;
+    left: 0.5%;
     z-index: 10003;
+  }
+  .exit {
+    bottom: 12%;
+
   }
 </style>
