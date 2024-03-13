@@ -1,15 +1,13 @@
-- implement fixing dash header to the top
-
-- implement logout button
-either we remove the navbar when we in the dash, or make the login button switch to logout
-*not implementing jwt for this project*
-
 - implement user profile
 allowing users to change their user details
 
 - implement email verification 
+- implement google recaptcha
 
 <!-- done -->
 - validation on the register, no duplication and conditions on the password
-- implement google recaptcha
 - implement a toggle for light and dark mode
+- implement fixing dash header to the top
+- implement logout button
+- either we remove the navbar when we in the dash, or make the login button switch to logout
+    *not implementing jwt for this project*
