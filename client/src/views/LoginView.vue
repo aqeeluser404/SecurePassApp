@@ -9,7 +9,13 @@
             </div>
             <div class="form-group">
               <label>Password:</label>
-              <input type="password" class="form-control" v-model="user.password">
+              <div class="password-input">
+                <input :type="showPassword ? 'text' : 'password'" class="form-control" v-model="user.password">
+                <button @click="togglePasswordVisibility($event)" class="password-toggle-button">
+                  <i v-if="showPassword" class="fa fa-eye"></i>
+                  <i v-else class="fa fa-eye-slash"></i>
+                </button>
+              </div>
             </div>
             <div class="form-group">
               <button type="submit" class="submit-button">Login</button>
@@ -31,13 +37,15 @@
         user: {
           email : "",
           password: ""
-        }
+        },
+        showPassword: false,
       }
     },
     methods: {
       refresh() {
         window.location.reload();
       },
+      
       // LOGIN 
       loginData() {
         // const store = useStore();
@@ -73,7 +81,31 @@
           }
         )
       },
+      togglePasswordVisibility(event) {
+          event.preventDefault(); // Prevent the default behavior of the button click event
+          this.showPassword = !this.showPassword;
+      },
     }
   }
 </script>
-  
+
+<style scoped>
+  .password-input {
+    position: relative;
+  }
+
+  .password-toggle-button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .fa {
+    font-size: 1.2em;
+    color: var(--color-black-muted);
+  }
+</style>

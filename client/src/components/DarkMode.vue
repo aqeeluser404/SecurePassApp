@@ -14,7 +14,7 @@
     methods: {
       toggleDarkMode() {
         this.darkMode = !this.darkMode;
-        // localStorage.setItem('darkMode', this.darkMode);
+        localStorage.setItem('darkMode', this.darkMode.toString());
 
         if (this.darkMode) {
           // DARK MODE
@@ -29,9 +29,9 @@
         }
       },
     },
-    // created() {
-    //   this.darkMode = localStorage.getItem('darkMode') === 'true'; 
-    // },
+    created() {
+      this.darkMode = localStorage.getItem('darkMode') === 'true'; 
+    },
   };
   </script>
   

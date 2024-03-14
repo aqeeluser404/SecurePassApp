@@ -20,7 +20,13 @@
             </div>
             <div class="form-group">
                 <label>Password:</label>
-                <input type="password" class="form-control" v-model="user.password">
+                <div class="password-input">
+                    <input :type="showPassword ? 'text' : 'password'" class="form-control" v-model="user.password">
+                    <button @click="togglePasswordVisibility($event)" class="password-toggle-button">
+                        <i v-if="showPassword" class="fa fa-eye"></i>
+                        <i v-else class="fa fa-eye-slash"></i>
+                    </button>
+                </div>
             </div>
             <button type="submit" class="submit-button">Signup</button>
             <p class="text-decoration-underline font-size-responsive-xs" @click="GoToLogin">Already have an account?</p>
@@ -33,6 +39,7 @@
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
+    const showPassword = ref(false);
     const router = useRouter();
     const result = ref({});
     const user = ref({
@@ -86,9 +93,12 @@
             console.error('Error saving user data:', error);
         }
     };
+    const togglePasswordVisibility = (event) => {
+        event.preventDefault();
+        showPassword.value = !showPassword.value;
+    };
 
     const isPasswordComplex = (password) => {
-        // Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 symbol
         const uppercaseRegex = /[A-Z]/;
         const lowercaseRegex = /[a-z]/;
         const numberRegex = /[0-9]/;
@@ -108,6 +118,24 @@
 </script>
 
 <style scoped>
+    .password-input {
+        position: relative;
+    }
+
+    .password-toggle-button {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .fa {
+        font-size: 1.2em;
+        color: var(--color-black-muted);
+    }
     .text-container {
         text-align: center;
         padding: 1em 2em;
