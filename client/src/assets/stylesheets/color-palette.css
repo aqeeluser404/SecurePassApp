@@ -49,10 +49,10 @@
 }
   
 /* Dark Mode */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
       --color-background: var(--color-black);
       --color-text: var(--color-white);
       --color-container-background: var(--color-black-muted);
     }
-} */
+}
