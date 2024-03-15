@@ -126,9 +126,9 @@
 </script>
 
 <template>
+  <!-- dashboard container -->
   <main>
     <div class="dynamic-container flex-column">
-
       <div class="dash-header flex-row-start">
         <div>
           <h1 class="font-size-responsive-lg">Hi, 
@@ -144,7 +144,7 @@
           </h1>
         </div>
         <div class="flex-row-start">
-
+          <!-- search input -->
           <input v-model.trim="search" type="text" placeholder="Search...">
           <DarkMode class="dark-mode" />
         </div>

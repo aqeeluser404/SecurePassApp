@@ -1,4 +1,5 @@
 <template>
+  <!-- main container -->
   <main>
     <div class="dynamic-container flex-row-start">
       <div class="text-container flex-column-start">
