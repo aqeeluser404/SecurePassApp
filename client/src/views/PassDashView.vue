@@ -162,9 +162,7 @@
             double click the card to delete. <br>
           </p>
         </div>
-
       </div>
-
     </div>
 
       <!-- elements -->
