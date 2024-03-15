@@ -7,14 +7,12 @@
 
   const store = useStore(); 
 
-
   import UserService from '../service/UserService';
   import PassService from '../service/PassService';
 
   // user item
-  // Got userId from route
   const route = useRoute()
-  const userId = ref(route.params.id)
+  const userId = ref(route.params.id)   // Got userId from route
   const user = ref(null);
   const userName = ref('')
 
@@ -24,7 +22,6 @@
   // pass item
   const passItems = ref([]);
 
-  const result = ref({});
   const createdPass = ref({
     accountName: '',
     userName: '',
@@ -53,7 +50,6 @@
         const pass = passResponse.data;
         const passItem = pass.pass
   
-
         // Check if pass data is not empty before pushing to passItems
         if (passItem) {
           passItems.value.push(passItem);
@@ -80,7 +76,6 @@
       else {
         alert("Error adding pass");
       }
-
     } 
     catch (error) {
       console.error('Error adding pass', error);
@@ -120,6 +115,7 @@
     fetchUserDetails();
     store.commit('toggleNavbar');
   })
+
   onBeforeUnmount(() => {
     store.commit('toggleNavbar');
   });
@@ -136,6 +132,7 @@
               {{ capitalizeFirstLetter(userName) }}
             </span>
           </h1>
+          <!-- pass counter -->
           <h1 class="font-size-responsive-xs text-uppercase">
             Secured: 
             <span class="username">
@@ -149,16 +146,15 @@
           <DarkMode class="dark-mode" />
         </div>
       </div>
-
+      <!-- card container -->
       <div class="card-container">
-
+        <!-- card -->
         <Card v-for="pass in passItems"
           :key="pass.id"
           :pass="pass" 
           :userId="userId" 
           @dblclick="deletePass(pass._id, userId)"
         />
-
         <div class="text-container">
           <p v-if="passItems.length === 0" class="no-items-message">
             Click '+' to add. <br>
