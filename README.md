@@ -1,10 +1,10 @@
 # SecurePassApp 
 
-This is a simple password manager built with Vue.js and Vuex.
+This is a simple password manager built with Vue.js and express.
 
 ## Features
 
-- **User Authentication:** Users can sign up and log in securely.
+- **User Authentication:** Users can sign up and log in securely. (NO JWT)
 - **Password Encryption:** All passwords are encrypted before storing them in the database.
 - **Intuitive Interface:** Easy-to-use interface for managing passwords and accounts.
 - **Dark Mode:** Toggle between light and dark mode for comfortable viewing.
